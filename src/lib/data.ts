@@ -321,3 +321,56 @@ export function getBooksByAuthor(slug: string): Book[] {
 export function getRelatedBooks(book: Book, limit = 8): Book[] {
   return BOOKS.filter((b) => b.slug !== book.slug).slice(0, limit);
 }
+
+const GRADIENT_LIST = Object.values(G);
+
+function hashString(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h;
+}
+
+function gradientFor(slug: string): [string, string] {
+  return GRADIENT_LIST[hashString(slug) % GRADIENT_LIST.length];
+}
+
+const titleCase = (slug: string) =>
+  slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+
+/** Every author slug referenced anywhere — used for static params. */
+export function getAllAuthorSlugs(): string[] {
+  return Array.from(
+    new Set([...AUTHORS.map((a) => a.slug), ...BOOKS.map((b) => b.authorSlug)]),
+  );
+}
+
+/**
+ * Return a full author record. Authors without a hand-written profile (most
+ * bylines) are synthesized from their books so every "by …" link resolves to a
+ * real page instead of a 404.
+ */
+export function resolveAuthor(slug: string): Author {
+  const known = getAuthor(slug);
+  if (known) return known;
+
+  const book = BOOKS.find((b) => b.authorSlug === slug);
+  const name = book?.author ?? titleCase(slug);
+  return {
+    slug,
+    name,
+    bio: `${name} is a celebrated author featured on Chai Reader, with stories and ideas loved by readers around the world.`,
+    tags: DEFAULT_TAGS,
+    portrait: gradientFor(slug),
+  };
+}
+
+/** An author's own books, padded with other titles to fill the grid. */
+export function getAuthorReleases(slug: string, count = 10): Book[] {
+  const own = getBooksByAuthor(slug);
+  if (own.length >= count) return own.slice(0, count);
+  const others = BOOKS.filter((b) => b.authorSlug !== slug);
+  return [...own, ...others].slice(0, count);
+}
