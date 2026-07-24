@@ -1,0 +1,161 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Chai Reader design tokens.
+  Colors sampled from the provided design screenshots. The UI is intentionally
+  light-first (the design ships a single light theme); the .dark block is kept
+  as a sane fallback but the app is not styled for dark mode.
+*/
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+
+  /* Brand */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-violet: var(--violet);
+
+  /* Cream sidebar */
+  --color-cream: var(--cream);
+  --color-cream-active: var(--cream-active);
+
+  /* Tag pills */
+  --color-tag: var(--tag);
+  --color-tag-foreground: var(--tag-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: #ffffff;
+  --foreground: #1a1a1e;
+
+  --brand: #2f6bed;
+  --brand-foreground: #ffffff;
+  --violet: #6d3beb;
+
+  --cream: #fdf6dd;
+  --cream-active: #f5e9bd;
+
+  --tag: #e7f0fe;
+  --tag-foreground: #2f6bed;
+
+  --card: #ffffff;
+  --card-foreground: #1a1a1e;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1e;
+
+  /* Near-black CTA buttons ("Read & Chat", "Chat Now") */
+  --primary: #191919;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f4f4f5;
+  --secondary-foreground: #1a1a1e;
+  --muted: #f6f6f7;
+  --muted-foreground: #6b7280;
+  --accent: #f3f5f9;
+  --accent-foreground: #1a1a1e;
+  --destructive: #e5484d;
+
+  --border: #ececee;
+  --input: #e3e3e6;
+  --ring: #2f6bed;
+
+  --sidebar: #fdf6dd;
+  --sidebar-foreground: #33322c;
+  --sidebar-accent: #f5e9bd;
+  --sidebar-accent-foreground: #1a1a1e;
+  --sidebar-border: #efe6c4;
+}
+
+.dark {
+  --background: #101014;
+  --foreground: #f4f4f5;
+  --card: #17171c;
+  --card-foreground: #f4f4f5;
+  --popover: #17171c;
+  --popover-foreground: #f4f4f5;
+  --primary: #f4f4f5;
+  --primary-foreground: #191919;
+  --secondary: #26262c;
+  --secondary-foreground: #f4f4f5;
+  --muted: #26262c;
+  --muted-foreground: #a1a1aa;
+  --accent: #26262c;
+  --accent-foreground: #f4f4f5;
+  --border: #ffffff1a;
+  --input: #ffffff26;
+  --cream: #1d1b12;
+  --cream-active: #2a2718;
+  --sidebar: #1d1b12;
+  --sidebar-foreground: #e8e2cc;
+  --sidebar-accent: #2a2718;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #33301f;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  /* Horizontal scroll rows (book carousels) without a visible scrollbar */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
