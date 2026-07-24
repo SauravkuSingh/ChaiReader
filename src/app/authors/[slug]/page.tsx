@@ -49,6 +49,7 @@ export default async function AuthorPage({ params }: PageProps) {
           ]}
         />
       }
+      footer={<Footer />}
     >
       <div className="mx-auto max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
         {/* Author profile */}
@@ -102,8 +103,6 @@ export default async function AuthorPage({ params }: PageProps) {
           </div>
         </section>
       </div>
-
-      <Footer />
     </AppShell>
   );
 }

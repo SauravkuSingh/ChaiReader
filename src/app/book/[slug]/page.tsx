@@ -64,6 +64,7 @@ export default async function BookPage({ params }: PageProps) {
           items={[{ label: "Browse", href: "/" }, { label: book.title }]}
         />
       }
+      footer={<Footer />}
     >
       <div className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr] lg:gap-12">
@@ -190,8 +191,6 @@ export default async function BookPage({ params }: PageProps) {
           </div>
         </div>
       </div>
-
-      <Footer />
     </AppShell>
   );
 }
