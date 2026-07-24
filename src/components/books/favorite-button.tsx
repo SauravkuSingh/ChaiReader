@@ -12,10 +12,12 @@ export function FavoriteButton({
   className,
   defaultActive = false,
   size = "md",
+  variant = "floating",
 }: {
   className?: string;
   defaultActive?: boolean;
   size?: "sm" | "md";
+  variant?: "floating" | "outline";
 }) {
   const [active, setActive] = useState(defaultActive);
 
@@ -29,15 +31,22 @@ export function FavoriteButton({
         setActive((a) => !a);
       }}
       className={cn(
-        "grid place-items-center rounded-full bg-background/90 shadow-sm backdrop-blur transition-transform duration-200 hover:scale-110 active:scale-90",
-        size === "md" ? "size-8" : "size-7",
+        "grid place-items-center transition-transform duration-200 hover:scale-110 active:scale-90",
+        variant === "floating"
+          ? "rounded-full bg-background/90 shadow-sm backdrop-blur"
+          : "rounded-xl border border-border bg-background",
+        variant === "outline"
+          ? "size-11"
+          : size === "md"
+            ? "size-8"
+            : "size-7",
         className,
       )}
     >
       <Heart
         className={cn(
           "transition-all duration-200",
-          size === "md" ? "size-4" : "size-[15px]",
+          variant === "outline" ? "size-5" : size === "md" ? "size-4" : "size-3.5",
           active
             ? "scale-110 fill-red-500 text-red-500"
             : "text-foreground/60",
