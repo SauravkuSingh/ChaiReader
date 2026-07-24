@@ -54,7 +54,7 @@ export default async function BookPage({ params }: PageProps) {
   if (!book) notFound();
 
   const author = resolveAuthor(book.authorSlug);
-  const related = getRelatedBooks(book, 8);
+  const related = getRelatedBooks(book, 12);
   const authorHref = `/authors/${author.slug}`;
 
   return (

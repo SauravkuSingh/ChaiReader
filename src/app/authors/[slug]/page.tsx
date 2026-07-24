@@ -35,8 +35,8 @@ export async function generateMetadata({
 export default async function AuthorPage({ params }: PageProps) {
   const { slug } = await params;
   const author = resolveAuthor(slug);
-  const releases = getAuthorReleases(slug, 10);
-  const moreReleases = getAuthorReleases(slug, 6);
+  const releases = getAuthorReleases(slug, 15);
+  const moreReleases = getAuthorReleases(slug, 9);
 
   return (
     <AppShell

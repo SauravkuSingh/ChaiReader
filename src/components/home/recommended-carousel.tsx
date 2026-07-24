@@ -56,6 +56,19 @@ const BANNERS: Banner[] = [
       "the-universe-and-dr-einstein",
     ],
   },
+  {
+    id: "recommended-4",
+    title: "Popular Right Now",
+    description:
+      "The titles readers can't stop talking about — see what everyone is reading this week.",
+    theme: "from-violet-50 via-purple-50/60 to-fuchsia-50",
+    slugs: [
+      "battle-for-the-king-s-throne",
+      "the-promised-fate",
+      "memory",
+      "a-girl-named-harper",
+    ],
+  },
 ];
 
 function BannerCard({ banner }: { banner: Banner }) {

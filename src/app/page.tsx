@@ -18,6 +18,12 @@ const speakWithAuthors = [
   "curtain-call",
   "million-to-one",
   "the-past-is-rising",
+  "the-casual-vacancy",
+  "the-greatest-books-of-ancient-india",
+  "sleeping-volcano",
+  "looking-for-lala",
+  "the-power-of-now",
+  "pirate-s-desire",
 ]
   .map(getBook)
   .filter((b): b is Book => Boolean(b));

@@ -134,6 +134,20 @@ const bySlug = new Map(BOOKS.map((b) => [b.slug, b]));
 const pick = (...slugs: string[]) =>
   slugs.map((s) => bySlug.get(s)).filter((b): b is Book => Boolean(b));
 
+/** Pad a curated list up to `count` books using other titles from the pool. */
+function expand(seed: Book[], count: number): Book[] {
+  if (seed.length >= count) return seed.slice(0, count);
+  const seen = new Set(seed.map((b) => b.slug));
+  const extras = BOOKS.filter((b) => !seen.has(b.slug));
+  const result = [...seed];
+  let i = 0;
+  while (result.length < count && extras.length > 0) {
+    result.push(extras[i % extras.length]);
+    i++;
+  }
+  return result;
+}
+
 export const AUTHORS: Author[] = [
   {
     slug: "jk-rowling",
@@ -173,7 +187,7 @@ export const GENRES: Genre[] = [
   { label: "Education", slug: "education", image: G.forest },
 ];
 
-export const HOME_SECTIONS: BookSection[] = [
+const RAW_SECTIONS: BookSection[] = [
   {
     id: "new-arrivals",
     title: "New Arrivals",
@@ -297,6 +311,12 @@ export const HOME_SECTIONS: BookSection[] = [
     ),
   },
 ];
+
+/** Home rows, each padded to a fuller set of cards for scrolling. */
+export const HOME_SECTIONS: BookSection[] = RAW_SECTIONS.map((section) => ({
+  ...section,
+  books: expand(section.books, 12),
+}));
 
 export const RECOMMENDED = pick(
   "looking-for-lala",
