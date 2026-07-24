@@ -22,22 +22,21 @@ const speakWithAuthors = [
   .map(getBook)
   .filter((b): b is Book => Boolean(b));
 
-/** Order follows the design, with Self Help + Kids rows added so every sidebar
- *  nav anchor resolves to a section. */
-const ROW_ORDER = [
-  "new-arrivals",
-  "best-sellers",
-  "self-help",
-  "crime-fiction",
-  "non-fiction",
-  "academics",
-  "kids",
-  "business",
-  "tech-books",
-  "classics",
-] as const;
+/** Sections rendered as standard book carousels. Self Help + Kids are added
+ *  beyond the design so every sidebar nav anchor resolves to a section. */
+type RowId =
+  | "new-arrivals"
+  | "best-sellers"
+  | "self-help"
+  | "crime-fiction"
+  | "non-fiction"
+  | "academics"
+  | "kids"
+  | "business"
+  | "tech-books"
+  | "classics";
 
-function Row({ id }: { id: (typeof ROW_ORDER)[number] }) {
+function Row({ id }: { id: RowId }) {
   const section = sectionById[id];
   return (
     <BookCarousel
