@@ -3,7 +3,7 @@ import { SearchBar } from "@/components/layout/search-bar";
 import { Footer } from "@/components/layout/footer";
 import { HeroBanner } from "@/components/home/hero-banner";
 import { GenrePills } from "@/components/home/genre-pills";
-import { RecommendedBanner } from "@/components/home/recommended-banner";
+import { RecommendedCarousel } from "@/components/home/recommended-carousel";
 import { FamousAuthors } from "@/components/home/famous-authors";
 import { BookCarousel } from "@/components/books/book-carousel";
 import { HOME_SECTIONS, getBook } from "@/lib/data";
@@ -12,11 +12,11 @@ import type { Book } from "@/lib/types";
 const sectionById = Object.fromEntries(HOME_SECTIONS.map((s) => [s.id, s]));
 
 const speakWithAuthors = [
-  "the-philosopher-s-stone",
   "fantastic-beasts",
-  "the-casual-vacancy",
   "tales-from-indian-classics",
   "poet-empress",
+  "curtain-call",
+  "million-to-one",
   "the-past-is-rising",
 ]
   .map(getBook)
@@ -56,7 +56,7 @@ export default function Home() {
         <GenrePills />
 
         <Row id="new-arrivals" />
-        <RecommendedBanner />
+        <RecommendedCarousel />
         <Row id="best-sellers" />
         <Row id="self-help" />
 
