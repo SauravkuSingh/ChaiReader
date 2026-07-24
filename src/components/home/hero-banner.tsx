@@ -38,7 +38,12 @@ export function HeroBanner() {
           <div className="relative">
             <div className="absolute -inset-8 rounded-full bg-white/50 blur-2xl" />
             <div className="w-36 rotate-6 lg:w-40">
-              <BookCover book={featured} className="shadow-2xl shadow-black/20" />
+              <BookCover
+                book={featured}
+                priority
+                sizes="160px"
+                className="shadow-2xl shadow-black/20"
+              />
             </div>
           </div>
         </div>

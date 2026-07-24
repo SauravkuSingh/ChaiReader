@@ -5,11 +5,11 @@ import { GradientAvatar } from "@/components/books/gradient-avatar";
 const FAMOUS: { name: string; colors: [string, string] }[] = [
   { name: "J.K Rowling", colors: ["#8a7f7a", "#5c534f"] },
   { name: "Chetan Bhagat", colors: ["#0ea5e9", "#1e3a8a"] },
-  { name: "J.K Rowling", colors: ["#f59e0b", "#b45309"] },
+  { name: "Ruskin Bond", colors: ["#f59e0b", "#b45309"] },
   { name: "Arundhati Roy", colors: ["#65a30d", "#365314"] },
   { name: "Ashwin Sanghi", colors: ["#7c3aed", "#4c1d95"] },
-  { name: "J.K Rowling", colors: ["#be185d", "#831843"] },
-  { name: "Chetan Bhagat", colors: ["#0d9488", "#134e4a"] },
+  { name: "Sudha Murty", colors: ["#be185d", "#831843"] },
+  { name: "Amish Tripathi", colors: ["#0d9488", "#134e4a"] },
 ];
 
 export function FamousAuthors() {

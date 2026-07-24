@@ -71,7 +71,12 @@ export default async function BookPage({ params }: PageProps) {
           {/* Cover + actions */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="mx-auto w-52 sm:w-64 lg:w-full lg:max-w-[300px]">
-              <BookCover book={book} className="rounded-xl shadow-xl shadow-black/15" />
+              <BookCover
+                book={book}
+                priority
+                sizes="(max-width: 1024px) 60vw, 300px"
+                className="rounded-xl shadow-xl shadow-black/15"
+              />
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <Button variant="outline" className="h-11 rounded-lg font-medium">
                   Read
@@ -169,8 +174,10 @@ export default async function BookPage({ params }: PageProps) {
                   <article key={review.id} className="flex gap-3">
                     <GradientAvatar
                       name={review.name}
+                      seed={review.id}
                       colors={review.avatar}
                       className="size-9 text-xs"
+                      sizes="36px"
                     />
                     <div className="min-w-0">
                       <p className="text-sm font-semibold text-foreground">

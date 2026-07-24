@@ -110,9 +110,13 @@ Mobile-first, verified from 360px → wide desktop:
 - **Figma not directly accessible**, so typography (Poppins + Inter), exact hex
   values, spacing and any content beyond the three screenshots were inferred
   from the images and captured as tokens.
-- **Book covers & author photos** are generated placeholder art (per-item
-  gradient + title), keeping the app self-contained and offline/Capacitor
-  friendly. Swapping in real images via `next/image` is a drop-in change.
+- **Book covers & author photos** use *seeded* placeholder imagery — covers from
+  [picsum.photos](https://picsum.photos), portraits from
+  [pravatar.cc](https://pravatar.cc) — via `next/image`. Seeds are derived from
+  the book/person, so a given item always resolves to the same picture and the
+  prerendered HTML stays stable. The per-item gradient is painted *behind* the
+  image, so a slow or failed request degrades to the designed look rather than
+  an empty box. Pointing `src/lib/images.ts` at a real CDN is a one-file change.
 - **Self Help** and **Kids** rows were added to Home so every sidebar nav item
   deep-links to a real section; secondary nav items scroll to Home sections.
 - The book-detail byline uses the book's actual author (for a coherent
@@ -122,9 +126,11 @@ Mobile-first, verified from 360px → wide desktop:
 
 ## Trade-offs
 
-- **Placeholder cover art vs. licensed images** — chose self-contained gradients
-  over sourcing/hosting real covers; prioritizes a working offline build and
-  avoids copyright/asset weight.
+- **Remote placeholder imagery vs. bundled assets** — seeded photos read far
+  better than flat gradients and avoid shipping (or licensing) real cover art.
+  The cost is a runtime dependency on two image hosts: fine for review, but for
+  a real Capacitor build these would be bundled locally or cached. The gradient
+  fallback keeps the UI presentable offline in the meantime.
 - **Native scroll-snap carousel** instead of a carousel library — lighter, more
   touch-native, fewer dependencies; gives up drag-inertia niceties.
 - **Static mock data** instead of an API layer — keeps the export fully static
