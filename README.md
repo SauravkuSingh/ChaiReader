@@ -9,7 +9,7 @@ A pixel-focused, fully responsive frontend built from the provided Figma design.
 
 | Route              | Screen                                                          |
 | ------------------ | -------------------------------------------------------------- |
-| `/`                | **Browse / Home** — hero, genres, 10+ book carousels, footer   |
+| `/`                | **Browse / Home** — hero, genre pills, 10+ book carousels, footer   |
 | `/authors/[slug]`  | **Author** — profile, tags, "New Releases" grid + list         |
 | `/book/[slug]`     | **Book detail** — cover + actions, about, details, reviews     |
 
@@ -85,6 +85,8 @@ src/
   components; everything else renders on the server.
 - **Reusable primitives.** One `BookCard`, `BookCover`, `CarouselRow`,
   `SectionHeader`, `Tag` and `GradientAvatar` drive all three pages.
+- **Figma-inspired genre pills.** The home page includes large, gradient-backed
+  genre buttons with soft highlights and spacious spacing to mirror the design.
 
 ## Responsive Design
 

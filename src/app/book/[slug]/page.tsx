@@ -66,7 +66,7 @@ export default async function BookPage({ params }: PageProps) {
       }
       footer={<Footer />}
     >
-      <div className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-screen-xl 2xl:max-w-[1600px] px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr] lg:gap-12">
           {/* Cover + actions */}
           <div className="lg:sticky lg:top-24 lg:self-start">

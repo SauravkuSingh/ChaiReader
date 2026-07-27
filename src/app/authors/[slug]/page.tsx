@@ -51,7 +51,7 @@ export default async function AuthorPage({ params }: PageProps) {
       }
       footer={<Footer />}
     >
-      <div className="mx-auto max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-screen-xl 2xl:max-w-[1600px] px-4 py-6 sm:px-6 lg:px-8">
         {/* Author profile */}
         <header className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-7">
           <GradientAvatar
