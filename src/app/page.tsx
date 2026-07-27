@@ -57,7 +57,7 @@ function Row({ id }: { id: RowId }) {
 export default function Home() {
   return (
     <AppShell header={<SearchBar />} footer={<Footer />}>
-      <div className="mx-auto max-w-[1400px] space-y-11 px-4 py-6 sm:space-y-12 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-screen-xl 2xl:max-w-[1600px] space-y-11 px-4 py-6 sm:space-y-12 sm:px-6 lg:px-8">
         <HeroBanner />
         <GenrePills />
 

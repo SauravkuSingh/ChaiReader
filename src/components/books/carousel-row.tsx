@@ -101,7 +101,7 @@ export function CarouselRow({
       <div
         ref={ref}
         onScroll={update}
-        className="no-scrollbar -mx-1 flex snap-x snap-mandatory scroll-px-1 gap-4 overflow-x-auto px-1 pb-2"
+        className="no-scrollbar -mx-1 flex snap-x snap-mandatory scroll-px-1 gap-4 overflow-x-auto px-1 pb-2 pt-3"
       >
         {children}
       </div>

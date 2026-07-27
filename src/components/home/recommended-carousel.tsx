@@ -86,7 +86,7 @@ function BannerCard({ banner }: { banner: Banner }) {
       {/* soft glow */}
       <div className="pointer-events-none absolute -right-16 -top-20 size-52 rounded-full bg-white/40 blur-3xl" />
 
-      <div className="relative grid gap-6 lg:grid-cols-[220px_1fr] lg:items-center lg:gap-8">
+      <div className="relative grid gap-6  lg:items-center lg:gap-8">
         <div>
           <h3 className="font-heading text-xl font-bold text-foreground sm:text-2xl">
             {banner.title}
@@ -96,7 +96,7 @@ function BannerCard({ banner }: { banner: Banner }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-4 gap-2.5 sm:gap-3.5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3.5">
           {books.map((book) => (
             <Link
               key={book.id}

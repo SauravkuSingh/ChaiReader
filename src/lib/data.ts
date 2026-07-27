@@ -180,11 +180,11 @@ export const REVIEWS: Review[] = [
 ];
 
 export const GENRES: Genre[] = [
-  { label: "People", slug: "people", image: G.sand },
-  { label: "History", slug: "history", image: G.slate },
-  { label: "Politics", slug: "politics", image: G.gold },
-  { label: "Kids", slug: "kids", image: G.teal },
-  { label: "Education", slug: "education", image: G.forest },
+  { label: "People", slug: "people",  photo: "https://picsum.photos/seed/genre-people/400/200" },
+  { label: "History", slug: "history",  photo: "https://picsum.photos/seed/genre-history/400/200" },
+  { label: "Politics", slug: "politics", photo: "https://picsum.photos/seed/genre-politics/400/200" },
+  { label: "Kids", slug: "kids",  photo: "https://picsum.photos/seed/genre-kids/400/200" },
+  { label: "Education", slug: "education",  photo: "https://picsum.photos/seed/genre-education/400/200" },
 ];
 
 const RAW_SECTIONS: BookSection[] = [

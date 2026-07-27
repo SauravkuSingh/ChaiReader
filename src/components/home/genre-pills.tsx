@@ -15,12 +15,13 @@ export function GenrePills() {
           <Link
             key={genre.slug}
             href={`/#${genre.slug}`}
-            className="group relative flex h-12 shrink-0 items-center overflow-hidden rounded-full px-7 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.04]"
+            className="group relative flex h-15 w-40 shrink-0 items-center whitespace-nowrap overflow-hidden rounded-full px-7 text-sm font-semibold text-white shadow-sm transition-transform duration-200 "
             style={{
-              backgroundImage: `linear-gradient(135deg, ${genre.image[0]}, ${genre.image[1]})`,
+              backgroundImage: ` url(${genre.photo})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           >
-            <span className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/0" />
             <span className="relative z-10 drop-shadow-sm">{genre.label}</span>
           </Link>
         ))}

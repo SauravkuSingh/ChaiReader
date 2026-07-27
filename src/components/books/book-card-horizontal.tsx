@@ -26,7 +26,7 @@ export function BookCardHorizontal({
       <Link
         href={href}
         aria-label={book.title}
-        className="w-[84px] shrink-0 self-start"
+        className="w-[110px] shrink-0 self-start"
       >
         <BookCover
           book={book}

@@ -26,7 +26,8 @@ export function FamousAuthors() {
             name={author.name}
             colors={author.colors}
             shape="rounded"
-            className="aspect-[4/3] w-full text-xl shadow-sm transition-transform duration-300 group-hover:-translate-y-1"
+            className="aspect-[4/3] w-full text-xl shadow-sm transition-transform duration-300 group-hover:-translate-y-1
+    group-hover:shadow-xl"
           />
           <p className="mt-2 truncate text-center text-xs font-medium text-foreground/80 group-hover:text-brand">
             {author.name}
